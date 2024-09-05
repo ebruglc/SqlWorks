@@ -23,5 +23,5 @@ select DATEDIFF(month,Birthdate,getDate())  from employees -- Sql server
 
 
 select now(),CURRENT_TIMESTAMP
-SELECT LOCALTIME;
+select LOCALTIME;
 show timezone;
