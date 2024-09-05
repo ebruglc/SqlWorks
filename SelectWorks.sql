@@ -50,3 +50,11 @@ SELECT * FROM suppliers
 
 --Amerika disindaki tefarikcilerin listesi
 SELECT * FROM suppliers WHERE country != "USA"
+
+select * from employees where firstname like '[AM]%'
+select * from employees where firstname like '%[al]%' 
+--firstname alaninda isimlerin j-r arasinda olan kayitlarin getirilmesi
+select * from employees where firstname like '[j-r]%' order by FirstName
+
+
+Select GetDate()
