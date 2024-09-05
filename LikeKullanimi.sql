@@ -26,7 +26,7 @@ SELECT * FROM employees WHERE first_name SIMILAR TO '[AL]%' or first_name SIMILA
 SELECT * FROM employees WHERE UPPER(first_name) SIMILAR TO '[AL]%' 
 
 --Sql server
-
+--firstname alaninda isimlerin j-r arasinda olan kayitlarin getirilmesi
 select * from  Employees 
 where FirstName LIKE '[J-R]%' 
 order by FirstName
@@ -41,6 +41,11 @@ WHERE LOWER(first_name) SIMILAR TO '%[al]%'
 Order By first_name
 
 -- Sql server da
+select * from employees where firstname like '%[al]%' 
+
 SELECT * FROM employees 
 WHERE firstname like '%[al]%' 
 Order By firstname
+
+
+
