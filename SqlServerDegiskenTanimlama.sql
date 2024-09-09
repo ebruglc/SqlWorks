@@ -3,7 +3,7 @@
 declare @sayi1 as int =0;
 DECLARE @sayi2 int 
 declare @dogurmTarihi DATETIME
-declare @isim char(10) -- Sbit uzunlukta 10 elemanli 
+declare @isim char(10) -- Sabit uzunlukta 10 elemanli 
 declare @soyisim varchar(50);
 declare @adres nvarchar(50);
 
