@@ -11,13 +11,13 @@ SELECT e.First_Name AS Calisan, sum(od.Quantity * od.Unit_Price * (1 - od.Discou
        GROUP BY e.First_Name 
        ORDER BY ciro DESC; -- ; koymazsan hata verir.
 $func$
+
 LANGUAGE sql;
+--Cagirmak icin;
+SELECT * FROM Calisanlar(1997) --where calisan = 'Janet';
 
-SELECT * FROM Calisanlar(1997) --Cagırmak icin
 
-
-select * from Calisanlar(1997) --where calisan = 'Janet';
-
+----
 
 create or replace FUNCTION public.CalisanPerformanslari()
  RETURNS TABLE (
@@ -30,18 +30,19 @@ LANGUAGE plpgsql
 AS $$
 BEGIN
   RETURN QUERY
-  Select e.First_Name As Calisan ,
-            date_part('year',o.order_date)::int AS Yil ,
+  Select e.First_Name As Calisan,
+            date_part('year', o.order_date) :: int AS Yil,
             count(*) Adet,
             sum(od.quantity*od.Unit_Price) AS Ciro
   from Employees e 
   inner join orders o on o.Employee_ID = e.Employee_ID
   inner join Order_Details od on od.Order_ID = o.order_id 
  -- where e.employee_id = calisanId
-  group by e.first_name , date_part('year',o.order_date) ;
+  group by e.first_name , date_part('year',o.order_date);
 
   end; $$;
- select * from CalisanPerformanslari();
+ 
+select * from CalisanPerformanslari();
 drop function public.CalisanlarinPerformansi
 CREATE OR REPLACE FUNCTION public.CalisanlarinPerformansi(calisanId INT)
 RETURNS TABLE (
@@ -57,7 +58,7 @@ BEGIN
 
 
 		  SELECT e.First_Name  AS Calisan,
-		  date_part('year',o.order_date)::int Yil,
+		  date_part('year',o.order_date) :: int Yil,
 		         COUNT(*) AS Adet,
 		         SUM(od.quantity * od.unit_price) AS Ciro
 		  FROM employees e
